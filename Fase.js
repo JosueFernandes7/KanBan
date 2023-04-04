@@ -32,7 +32,7 @@ export default class Fase {
     spanDate.classList.add('taskDate');
 
     task.append(...[h1,p,spanAuthor,spanDate]);
-    this.insertTask(task);
+    return task;
   }
   insertTask(task) {
     this.localization.append(task);
