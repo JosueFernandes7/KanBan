@@ -1,8 +1,8 @@
 :root {
-  --todo-bg: #FFEE95;
-  --doing-bg: #FFCE94;
-  --done-bg: #C0FF8E;
-  --data-text-color: #FB70A2;
+  --todo-bg: #ffee95;
+  --doing-bg: #ffce94;
+  --done-bg: #c0ff8e;
+  --data-text-color: #fb70a2;
   --tast-color: #333333;
 }
 * {
@@ -13,6 +13,7 @@
 }
 body {
   background: #dddddd;
+  position: relative;
 }
 .container {
   display: flex;
@@ -45,7 +46,7 @@ body {
 }
 .kanban-reset::after,
 .kanban-reset::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 10px;
   height: 2px;
@@ -57,7 +58,7 @@ body {
 .kanban-reset::before {
   transform: rotate(135deg);
 }
-.kanban-reset:hover{
+.kanban-reset:hover {
   transform: rotate(360deg);
 }
 .kanban-boards {
@@ -97,7 +98,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 .task {
   width: 90%;
@@ -105,17 +106,17 @@ body {
   max-height: 80%;
   border: 2px solid #333333;
   border-radius: 8px;
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   text-align: left;
-  gap: .7rem;
+  gap: 0.7rem;
 }
-.task:nth-child(1){
-  margin-top: .8rem;
+.task:nth-child(1) {
+  margin-top: 0.8rem;
 }
-.task:last-child{
-  margin-bottom: .5rem;
+.task:last-child {
+  margin-bottom: 0.5rem;
 }
 .task h1 {
   font-size: 1rem;
@@ -123,7 +124,7 @@ body {
 }
 .task p {
   color: var(--tast-color);
-  font-size: .8rem;
+  font-size: 0.8rem;
   grid-column: 1 / -1;
   margin-bottom: 1rem;
 }
@@ -133,7 +134,7 @@ body {
   position: relative;
 }
 .taskDate::before {
-  content: "";
+  content: '';
   background-image: url('./Assets/Alarm.svg');
   width: 16px;
   height: 16px;
@@ -156,8 +157,8 @@ body {
   transition: 0.4s;
 }
 .createTask button::after,
-.createTask button::before{
-  content: "";
+.createTask button::before {
+  content: '';
   position: absolute;
   width: 2px;
   height: 14px;
@@ -167,11 +168,49 @@ body {
   top: 10px;
 }
 .createTask button::before {
-  content: "";
+  content: '';
   transform: rotate(360deg);
   left: 20;
 }
 
 .createTask button:hover {
   background: #ccc;
+}
+.modalTask {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.6px);
+  -webkit-backdrop-filter: blur(6.6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.modalTask form {
+  padding: 2rem;
+  width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  color: #fff;
+  border: 2px solid #333;
+  display: grid;
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+input {
+  margin-block: .4rem;
+  padding: 0.5rem;
+}
+
+#enviarTask {
+  cursor: pointer;
+  transition: 0.8s;
 }
