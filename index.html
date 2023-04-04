@@ -6,26 +6,84 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <title>Kanban Board</title>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="kanban-title">Kanban Board</h1>
+    <div class="kanban-title">
+      <h1>Kanban Board</h1>
+      <span class="kanban-reset"></span>
+    </div>
     <div class="kanban-boards">
       <div class="board todo">
-        <h1>Todo</h1>
+        <!-- Titulo do Board -->
+        <div class="board-title-todo">
+          <h1>Todo</h1>
+        </div>
+        <!-- Conteudo -->
+        <div class="board-content">
+          <div class="dropzone todo">
+            <div class="task" draggable='true'>
+              <h1>Title</h1>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, placeat?</p>
+              <span class="taskAuthor">Josue</span>
+              <span class="taskDate">5, marçõ</span>
+            </div>
+          </div>
+          <!-- Criar Nova Task -->
+          <div class="createTask">
+            <button id="createTask-todo"></button>
+          </div>
+        </div>
       </div>
       <div class="board inProgress">
-        <h1>inProgress</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ratione hic inventore, sequi recusandae odio! Facere ratione doloremque natus dolore? lorem200</p>
+        <!-- Titulo do Board -->
+        <div class="board-title-inProgress">
+          <h1>InProgress</h1>
+        </div>
+        <!-- Conteudo -->
+        <div class="board-content">
+          <div class="dropzone inProgress">
+            <div class="task">
+              <h1>Title</h1>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, placeat?</p>
+              <span class="taskAuthor">Josue</span>
+              <span class="taskDate">5, marçõ</span>
+            </div>
+          </div>
+          <div class="createTask">
+            <button></button>
+          </div>
+        </div>
       </div>
       <div class="board done">
-        <h1>Done</h1>
+        <!-- Titulo do Board -->
+        <div class="board-title-done">
+          <h1>Done</h1>
+        </div>
+        <!-- Conteudo -->
+        <div class="board-content">
+          <div class="dropzone done">
+            <div class="task">
+              <h1>Title</h1>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, placeat?</p>
+              <span class="taskAuthor">Josue</span>
+              <span class="taskDate">5, marçõ</span>
+            </div>
+          </div>
+          <div class="createTask">
+            <button ></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   </div>
+  <script src="./index.js"></script>
 </body>
 
 </html>

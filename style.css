@@ -1,9 +1,19 @@
+:root {
+  --todo-bg: #FFEE95;
+  --doing-bg: #FFCE94;
+  --done-bg: #C0FF8E;
+  --data-text-color: #FB70A2;
+  --tast-color: #333333;
+}
 * {
+  font-family: 'Fira Code', monospace;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  background: #dddddd;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -14,25 +24,154 @@
 }
 .kanban-title {
   width: 100%;
-  text-align: center;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.kanban-reset {
+  cursor: pointer;
+  border-radius: 100%;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  transition: 0.5s;
+}
+.kanban-reset::after,
+.kanban-reset::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: #000;
+}
+.kanban-reset::after {
+  transform: rotate(45deg);
+}
+.kanban-reset::before {
+  transform: rotate(135deg);
+}
+.kanban-reset:hover{
+  transform: rotate(360deg);
 }
 .kanban-boards {
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
-
   border-radius: 20px;
   height: 85vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
   justify-content: space-around;
 }
 .board {
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
   text-align: center;
+  height: inherit;
   display: flex;
   flex-direction: column;
   width: 30vw;
-  background: #dddddd;
-  border: 10px solid #fff;
+  background: #fff;
   border-radius: 20px;
+  overflow: hidden;
+}
+.board-title-todo {
+  background: var(--todo-bg);
+}
+.board-title-inProgress {
+  background: var(--doing-bg);
+}
+.board-title-done {
+  background: var(--done-bg);
+}
+
+.board-content {
   overflow-y: auto;
+}
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+.task {
+  width: 90%;
+  margin: 0 auto;
+  max-height: 80%;
+  border: 2px solid #333333;
+  border-radius: 8px;
+  padding: 1rem .5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: left;
+  gap: .7rem;
+}
+.task:nth-child(1){
+  margin-top: .8rem;
+}
+.task:last-child{
+  margin-bottom: .5rem;
+}
+.task h1 {
+  font-size: 1rem;
+  grid-column: 1 / -1;
+}
+.task p {
+  color: var(--tast-color);
+  font-size: .8rem;
+  grid-column: 1 / -1;
+  margin-bottom: 1rem;
+}
+.taskDate {
+  text-align: right;
+  color: var(--data-text-color);
+  position: relative;
+}
+.taskDate::before {
+  content: "";
+  background-image: url('./Assets/Alarm.svg');
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: calc(50% - 16px);
+  top: 2px;
+}
+.createTask {
+  height: 40px;
+}
+.createTask button {
+  height: 40px;
+  position: relative;
+  width: 90%;
+  padding: 5px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.createTask button::after,
+.createTask button::before{
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 14px;
+  transform: rotate(90deg);
+  background: black;
+  left: calc(50%);
+  top: 10px;
+}
+.createTask button::before {
+  content: "";
+  transform: rotate(360deg);
+  left: 20;
+}
+
+.createTask button:hover {
+  background: #ccc;
 }
