@@ -129,21 +129,25 @@ body {
   margin-bottom: 1rem;
 }
 .taskDate {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
   text-align: right;
   color: var(--data-text-color);
-  position: relative;
 }
 .taskDate::before {
   content: '';
   background-image: url('./Assets/Alarm.svg');
   width: 16px;
   height: 16px;
-  position: absolute;
-  left: calc(50% - 16px);
-  top: 2px;
+  display: inline-block;
+  /* left: calc(50% - 16px);
+  top: 2px; */
 }
 .createTask {
   height: 40px;
+  margin-bottom: 1rem;
 }
 .createTask button {
   height: 40px;
@@ -190,6 +194,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
+  display: none;
 }
 .modalTask form {
   padding: 2rem;
@@ -197,13 +202,20 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   background: #333;
   color: #fff;
   border: 2px solid #333;
   display: grid;
   border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: showSlow 1.5s forwards;
+}
+@keyframes showSlow{
+  to {
+    opacity: initial;
+  }
 }
 input {
   margin-block: .4rem;
@@ -213,4 +225,25 @@ input {
 #enviarTask {
   cursor: pointer;
   transition: 0.8s;
+}
+
+@media (max-width: 850px) {
+  .kanban-title {
+    padding: .2rem;
+  }
+  .kanban-boards {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 0;
+    height: 200px;
+    gap: 2px;
+  }
+  .board {
+    width: 100%;
+    margin: 0;
+    max-height: 250px;
+  }
+  .modalTask {
+    height:100%;
+  }
 }
