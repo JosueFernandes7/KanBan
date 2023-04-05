@@ -1,20 +1,21 @@
 export default class Fase {
   constructor(localization) {
     this.localization = localization;
+    this.children = this.localization.children;
     this.months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
+  }
+  getChildren() {
+    return this.children;
   }
   getLocalization() {
     return this.localization;
-  }
-  getFilhos() {
-    return this.localization.children;
   }
   getDataAtual() {
     let diaAtual = new Date().getDate();
     let mesAtual = this.months[new Date().getMonth()]
     return `${diaAtual}, ${mesAtual}`
   }
-  createTask(title, content, author) {
+  createTask(title, content, author, date) {
     const task = document.createElement('div');
     task.classList.add('task');
     task.draggable = true
@@ -30,7 +31,7 @@ export default class Fase {
     spanAuthor.classList.add('taskAuthor');
 
     const spanDate = document.createElement('span');
-    spanDate.textContent = this.getDataAtual();
+    spanDate.textContent = date ? date : this.getDataAtual();
     spanDate.classList.add('taskDate');
 
     const spanBox = document.createElement('span');
@@ -43,5 +44,5 @@ export default class Fase {
   }
   removeTask(task) {
     this.localization.contains(task) && task.remove();
-  }
+  } 
 }
