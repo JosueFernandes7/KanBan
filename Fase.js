@@ -4,6 +4,9 @@ export default class Fase {
     this.children = this.localization.children;
     this.months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
   }
+  setChildren(children) {
+    this.children = children;
+  }
   getChildren() {
     return this.children;
   }

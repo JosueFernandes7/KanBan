@@ -14,9 +14,10 @@ let tasks = document.querySelectorAll('.task')
 let todo = new Fase(kanBanTodo)
 let inProgress = new Fase(kanBanInProgress)
 let done = new Fase(kanBanDone)
-
 let fases = [todo, inProgress, done]
+
 let elementoASerDropado = null
+const resetKanban = document.querySelector('.kanban-reset')
 
 // Carrega o json se existir
 window.addEventListener('load', carregarPagina)
@@ -36,6 +37,20 @@ function carregarPagina() {
     })
   }
 
+  dragEvents();
+  updateTasks()
+  
+  resetKanban.addEventListener('click', removerTodasTasks)
+}
+function removerTodasTasks() {
+  [fases].forEach(fase => {
+    fase.forEach(({children}) =>{
+      Array.from(children).forEach(task => task.parentNode.removeChild(task))
+    })
+  })
+}
+// Inicializa todos enventos de drag and drop
+function dragEvents() {
   fases.forEach((fase) => {
     fase.getLocalization().addEventListener('drop', dropDrag)
     fase.getLocalization().addEventListener('dragenter', dragEnter)
@@ -43,8 +58,6 @@ function carregarPagina() {
     fase.getLocalization().addEventListener('dragover', (e) => e.preventDefault())
     fase.getLocalization().addEventListener('dragend', () => fases.forEach((fase) => fase.getLocalization().classList.remove('dragover')))
   })
-  
-  updateTasks()
 }
 // gera o json quando fechar a pagina
 function fecharPagina() {
@@ -73,15 +86,13 @@ function dropDrag({ currentTarget }) {
 }
 // Adiciona a classa sobre o que esta em cima
 function dragEnter({ currentTarget }) {
-  if (currentTarget.classList.contains('dropzone')) {
-    currentTarget.classList.add('dragover')
-  }
+  if (currentTarget.classList.contains('dropzone')) currentTarget.classList.add('dragover')
+  
 }
 // Quando mouse sai remove a classe de todos menos o que esta
 function dragLeave({ currentTarget }) {
   fases.forEach((fase) => {
-    if (fase.getLocalization() != currentTarget)
-      fase.getLocalization().classList.remove('dragover')
+    if (fase.getLocalization() != currentTarget) fase.getLocalization().classList.remove('dragover')
   })
 }
 // Altar o bg da task quando começa o evento
