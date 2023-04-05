@@ -4,6 +4,7 @@
 
 O Kanban é uma ferramenta visual para gerenciamento de tarefas e fluxo de trabalho. Ele permite que uma equipe visualize e gerencie seu trabalho em um quadro de tarefas, que normalmente é dividido em colunas para representar o fluxo de trabalho. As tarefas são movidas entre as colunas conforme progridem no processo de trabalho.
 ## [Visualização](https://josuefernandes7.github.io/KanBan/)
+![Kanban Board - Google Chrome 2023-04-05 15-29-25 (1)](https://user-images.githubusercontent.com/99553096/230172915-27552164-fff4-4d27-8349-a64ba4fc6cc3.gif)
 ## Funcionalidades
 
 - Adicionar novas tarefas
