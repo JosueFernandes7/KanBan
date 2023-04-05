@@ -135,7 +135,12 @@ function criarTask(event) {
       }
     })
   }
-  if (formEnviado) modalTask.style.display = 'none'
+  if (formEnviado) {
+    formulario.titulo.value = ""
+    formulario.conteudo.value = ""
+    formulario.autor.value = ""
+    modalTask.style.display = 'none'
+  } 
 }
 // Abre o Modal para o usuario
 function mostrarModal({ target }) {
