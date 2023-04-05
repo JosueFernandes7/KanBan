@@ -3,7 +3,8 @@
 ## Introdução
 
 O Kanban é uma ferramenta visual para gerenciamento de tarefas e fluxo de trabalho. Ele permite que uma equipe visualize e gerencie seu trabalho em um quadro de tarefas, que normalmente é dividido em colunas para representar o fluxo de trabalho. As tarefas são movidas entre as colunas conforme progridem no processo de trabalho.
-
+## [Visualização](https://josuefernandes7.github.io/KanBan/)
+![Kanban Board - Google Chrome 2023-04-05 15-29-25 (1)](https://user-images.githubusercontent.com/99553096/230172915-27552164-fff4-4d27-8349-a64ba4fc6cc3.gif)
 ## Funcionalidades
 
 - Adicionar novas tarefas
@@ -26,7 +27,7 @@ O Kanban foi desenvolvido em JavaScript e utiliza as seguintes tecnologias:
 ## Como utilizar
 
 1. Baixe o repositório do Kanban no GitHub.
-2. Abra o arquivo index.html em seu navegador.
+2. Abra o arquivo index.html em seu navegador com o liverserver ou outro servidor.
 3. Crie novas tarefas arrastando e soltando um cartão em uma coluna.
 4. Mova tarefas entre as colunas arrastando e soltando os cartões.
 5. Edite e exclua tarefas clicando no ícone de edição ou lixeira.
