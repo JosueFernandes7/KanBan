@@ -6,8 +6,8 @@ export default class Fase {
   getLocalization() {
     return this.localization;
   }
-  setLocalization(localization) {
-    this.localization = localization;
+  getFilhos() {
+    return this.localization.children;
   }
   getDataAtual() {
     let diaAtual = new Date().getDate();
