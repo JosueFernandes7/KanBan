@@ -1,11 +1,13 @@
 export default class Fase {
-  constructor(name, localization) {
-    this.name = name;
+  constructor(localization) {
     this.localization = localization;
     this.months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
   }
   getLocalization() {
     return this.localization;
+  }
+  setLocalization(localization) {
+    this.localization = localization;
   }
   getDataAtual() {
     let diaAtual = new Date().getDate();
@@ -31,10 +33,15 @@ export default class Fase {
     spanDate.textContent = this.getDataAtual();
     spanDate.classList.add('taskDate');
 
-    task.append(...[h1,p,spanAuthor,spanDate]);
+    const spanBox = document.createElement('span');
+    spanBox.classList.add('spanBox')
+    task.append(...[h1,p,spanAuthor,spanDate,spanBox]);
     return task;
   }
   insertTask(task) {
     this.localization.append(task);
+  }
+  removeTask(task) {
+    this.localization.contains(task) && task.remove();
   }
 }
