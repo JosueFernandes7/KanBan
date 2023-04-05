@@ -26,7 +26,7 @@ O Kanban foi desenvolvido em JavaScript e utiliza as seguintes tecnologias:
 ## Como utilizar
 
 1. Baixe o repositório do Kanban no GitHub.
-2. Abra o arquivo index.html em seu navegador.
+2. Abra o arquivo index.html em seu navegador com o liverserver ou outro servidor.
 3. Crie novas tarefas arrastando e soltando um cartão em uma coluna.
 4. Mova tarefas entre as colunas arrastando e soltando os cartões.
 5. Edite e exclua tarefas clicando no ícone de edição ou lixeira.
